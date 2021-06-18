@@ -21,3 +21,29 @@ export function signInWithGitHub() {
 export function logout() {
   return auth().signOut();
 }
+
+export function getCurrentUser() {
+  return auth().currentUser;
+}
+
+export function updateProfile(name,url,phone = null) {
+  const user = auth().currentUser;
+  if (name === null) {
+    name = user.displayName;
+  }
+  if (url === null) {
+    url = user.photoURL;
+  }
+  if (phone === null) {
+    phone = user.phoneNumber;
+  }
+  user.updateProfile({
+    displayName: name,
+    photoURL: url,
+    phoneNumber: phone
+  }).then(() => {
+    return "success"
+  }).catch((error) => {
+    return error
+  });
+}

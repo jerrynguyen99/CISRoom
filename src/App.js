@@ -111,7 +111,7 @@ class App extends Component {
                         component={Index}
                     />
                     {/* add redirect for first page */}
-                    <Redirect from="*" to="/" />
+                    <Redirect from="*" to="/user" />
                 </Switch>
             </Router>
         );

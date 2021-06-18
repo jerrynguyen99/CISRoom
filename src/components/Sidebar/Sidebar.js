@@ -9,24 +9,29 @@ export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:auto z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
             type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
+            onClick={() => setCollapseShow("bg-white m-2 py-2 px-6")}
           >
             <i className="fas fa-bars"></i>
           </button>
+          
           {/* Brand */}
-          <Link
-            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+          <Link className={
+            "py-2 flex items-center text-xl uppercase font-bold leading-snug text-blueGray-500 hover:text-blueGray-600"
+          }
             to="/"
           >
-            <i className="lg:text-blueGray-200 text-blueGray-400 fas fa-gamepad text-lg leading-lg mr-2" />{" "}
-            CIS Playground
+            <i className={
+              "fas fa-gamepad text-lg text-blueGray-300 opacity-75"
+            }
+            ></i>
           </Link>
+
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
@@ -51,7 +56,6 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Playground
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -65,172 +69,173 @@ export default function Sidebar() {
                 </div>
               </div>
             </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
 
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Categoriesssss
-            </h6>
-            {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/user/messenger") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/user/messenger"
-                >
-                  <i
-                    className={
-                      "fas fa-comment-dots mr-2 text-sm " +
-                      (window.location.href.indexOf("/user/messenger") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Messenger
-                </Link>
-              </li>
+            {/* Profile */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/profile") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/profile"
+            >
+              <i className={
+                "fas fa-user-tie   text-lg " +
+                (window.location.href.indexOf("/user/profile") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
 
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/user/cinema") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/user/cinema"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/user/cinema") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Cinema
-                </Link>
-              </li>
+            {/* Contact */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/contact") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/contact"
+            >
+              <i className={
+                "fas fa-address-book text-lg " +
+                (window.location.href.indexOf("/user/contact") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
 
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/user/settings") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/user/settings"
-                >
-                  <i
-                    className={
-                      "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/user/settings") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Settings
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/user/tables") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/user/tables"
-                >
-                  <i
-                    className={
-                      "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/user/tables") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Tables
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/user/maps") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/user/maps"
-                >
-                  <i
-                    className={
-                      "fas fa-map-marked mr-2 text-sm " +
-                      (window.location.href.indexOf("/user/maps") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Maps
-                </Link>
-              </li>
-            </ul>
 
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Auth Layout Pages
-            </h6>
-            {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/auth/login"
-                >
-                  <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Login
-                </Link>
-              </li>
+            {/* Mesenger */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/messenger") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/messenger"
+            >
+              <i className={
+                "fas fa-comment-dots text-lg " +
+                (window.location.href.indexOf("/user/messenger") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
 
-              <li className="items-center">
-                <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/auth/register"
-                >
-                  <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{" "}
-                  Register
-                </Link>
-              </li>
-            </ul>
+
+            {/* Cinema */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/cinema") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/cinema"
+            >
+              <i className={
+                "fas fa-tv text-lg " +
+                (window.location.href.indexOf("/user/cinema") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
+
+
+            {/* Music */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/music") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/music"
+            >
+              <i className={
+                "fas fa-music text-lg " +
+                (window.location.href.indexOf("/user/music") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
+
+
+            {/* Maps */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/maps") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/maps"
+            >
+              <i className={
+                "fas fa-map-marked text-lg " +
+                (window.location.href.indexOf("/user/maps") !== -1
+                  ? "opacity-90"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
 
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            
-            
+
+            {/* Settings */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/settings") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/settings"
+            >
+              <i className={
+                "fas fa-tools text-lg " +
+                (window.location.href.indexOf("/user/settings") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
+
+
+            {/* Light toggle */}
+            <Link className={
+              "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+              (window.location.href.indexOf("/user/settings") !== -1
+                ? "text-lightBlue-500 hover:text-lightBlue-600"
+                : "text-blueGray-500 hover:text-blueGray-600")
+            }
+              to="/user/settings"
+            >
+              <i className={
+                "fas fa-lightbulb text-lg " +
+                (window.location.href.indexOf("/user/settings") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300"
+                )
+              }
+              ></i>
+            </Link>
+
           </div>
         </div>
       </nav>

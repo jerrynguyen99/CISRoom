@@ -126,7 +126,7 @@ export default function Login() {
                       required
                     />
                   </div>
-                  <div>
+                  <div className="relative w-full mb-3">
                     <label className="inline-flex items-center cursor-pointer">
                       <input
                         id="customCheckLogin"
@@ -144,7 +144,9 @@ export default function Login() {
 
                   <div className="relative w-full mb-3">
                     {error ? (
-                      <p className="text-danger">{error}</p>
+                      <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
+                      {error}
+                    </span>
                     ) : null}
                   </div>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 import { logout } from "helpers/auth";
+import { getCurrentUser } from "helpers/auth";
 
 const UserDropdown = () => {
   // dropdown props
@@ -20,7 +21,7 @@ const UserDropdown = () => {
   const handleSignout = () => {
     logout();
   }
-
+  const user = getCurrentUser();
   return (
     <>
       <a
@@ -37,7 +38,7 @@ const UserDropdown = () => {
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
-              src={require("assets/img/anime3.png").default}
+              src={user.photoURL}
             />
           </span>
         </div>

@@ -48,6 +48,9 @@ export default class ChatBox extends Component {
     event.preventDefault();
     this.setState({ writeError: null });
     const chatArea = this.myRef.current;
+    if (this.state.content === '') {
+      return
+    }
     try {
       await db.ref("messengers").push({
         content: this.state.content,
@@ -65,12 +68,6 @@ export default class ChatBox extends Component {
     const d = new Date(timestamp);
     const time = `${d.getDate()}/${(d.getMonth() + 1)}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
     return time;
-  }
-
-  getKey = (event) => {
-    if (event.keyCode === 13) {
-      document.getElementById("submitBtn").click()
-    }
   }
 
   render() {
@@ -94,9 +91,13 @@ export default class ChatBox extends Component {
           })}
         </div>
         <form onSubmit={this.handleSubmit} className="mx-3">
-          <textarea className="form-control" name="content" onChange={this.handleChange} onKeyDown= {(e) => this.getKey(e) } value={this.state.content}></textarea>
+          <div class="relative flex w-full flex-wrap items-stretch mt-3">
+            <input type="text" placeholder="Regular Input" onChange={this.handleChange} value={this.state.content} className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10" />
+            <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent text-base items-center justify-center w-8 right-0 pr-3 py-3">
+              <i class="fas fa-paper-plane" onClick={this.handleSubmit}></i>
+            </span>
+          </div>
           {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
-          <button type="submit" id="submitBtn" className="btn btn-submit px-5 mt-4">Send</button>
         </form>
 
       </>
