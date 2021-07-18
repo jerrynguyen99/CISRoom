@@ -1,12 +1,24 @@
 import { getCurrentUser } from "helpers/auth";
-import { getDisplayName } from "helpers/auth";
-import React from "react";
+import React, {useState} from "react";
+import {userProfile} from "../../helpers/UserProfile";
+import {Button} from "@chatscope/chat-ui-kit-react";
 
 // components
 
 export default function CardProfile() {
-  const user = getCurrentUser();
-  return (
+  const [info, setInfo] = useState(userProfile);
+  const [isContinue, setIsContinue] = useState(!!(userProfile));
+
+  const LoadingState = async (event) => {
+    event.preventDefault();
+    setTimeout(() => {setIsContinue(true)}, 500);
+    while (!info) {
+      setInfo(userProfile);
+
+    }
+  }
+
+  return (isContinue)?(
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
         <div className="px-6">
@@ -15,48 +27,50 @@ export default function CardProfile() {
               <div className="relative">
                 <img
                   alt="..."
-                  src={user.photoURL}
+                  src={getCurrentUser().photoURL}
                   className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 min-w-150-px max-w-160-px"
                 />
               </div>
             </div>
             <div className="text-center mt-28">
               <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                {user.displayName}
-                
+                {getCurrentUser().displayName}
               </h3>
-              <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-                Thu duc, Ho Chi Minh City
-              </div>
+            <h4>
+              @{info.user_info.user_name}
+            </h4>
               <div className="mb-2 text-left text-blueGray-600 mt-10">
-                <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                React Dev - International University
+                <i className="fas fa-street-view mr-2 text-lg text-blueGray-400"></i>
+                Live in <strong>{info.user_contact_info.district}, {info.user_contact_info.city}</strong>
               </div>
               <div className="mb-2 text-left text-blueGray-600">
                 <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                University of Computer Science
+                Study at <strong>{info.user_major.school}</strong>
+              </div>
+              <div className="mb-2 text-left text-blueGray-600">
+                <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                Work at <strong>{info.user_job.company}</strong>
               </div>
             </div>
             <div className="w-full px-4 text-center mt-2">
               <div className="flex justify-center py-4 lg:pt-2 pt-2">
                 <div className="mr-4 ml-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                    22
+                    {info.user_friend.list.length}
                   </span>
                   <span className="text-sm text-blueGray-400">Friends</span>
                 </div>
                 <div className="mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                    10
+                    {info.user_photos.length}
                   </span>
                   <span className="text-sm text-blueGray-400">Photos</span>
                 </div>
                 <div className="lg:mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                    89
+                    {info.user_friend.list.length}
                   </span>
-                  <span className="text-sm text-blueGray-400">Comments</span>
+                  <span className="text-sm text-blueGray-400">Upvote</span>
                 </div>
               </div>
             </div>
@@ -66,11 +80,7 @@ export default function CardProfile() {
             <div className="flex flex-wrap justify-center">
               <div className="w-full text-justify lg:w-9/12 px-4">
                 <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                  An artist of considerable range, Jenna the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                  and records all of his own music, giving it a warm, intimate
-                  feel with a solid groove structure. An artist of considerable
-                  range.
+                  {info.user_favourite.quote}
                 </p>
                 <a
                   href="#pablo"
@@ -85,5 +95,5 @@ export default function CardProfile() {
         </div>
       </div>
     </>
-  );
+  ):(<Button autoFocus={true} onFocus={LoadingState}></Button>);
 }

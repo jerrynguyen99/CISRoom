@@ -1,7 +1,6 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
-import { logout } from "helpers/auth";
-import { getCurrentUser } from "helpers/auth";
+import {getCurrentUser, logout} from "helpers/auth";
 
 const UserDropdown = () => {
   // dropdown props
@@ -26,7 +25,7 @@ const UserDropdown = () => {
     <>
       <a
         className="text-blueGray-500 block"
-        href="#pablo"
+        href="#profile"
         ref={btnDropdownRef}
         onClick={(e) => {
           e.preventDefault();

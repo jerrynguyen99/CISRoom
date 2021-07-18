@@ -18,21 +18,4 @@ export function writeChats(message) {
   });
 }
 
-export function readInfo() {
-  let abc = [];
-  db.ref("users").on("value", snapshot => {
-    snapshot.forEach(snap => {
-      abc.push(snap.val())
-    });
-    return abc;
-  });
-}
-
-export function writeInfo(info) {
-  return db.ref("users").push({
-    username: info.username,
-    dob: info.dob,
-    uid: info.uid
-  });
-}
 

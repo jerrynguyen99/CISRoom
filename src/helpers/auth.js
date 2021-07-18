@@ -47,3 +47,18 @@ export function updateProfile(name,url,phone = null) {
     return error
   });
 }
+
+export class UserSession {
+  constructor() {
+    this.session = auth().currentUser;
+  }
+  get getSession() {
+    return this.session;
+  }
+  getDisplayName() {
+    return this.session.displayName;
+  }
+  getPhotoUrl() {
+    return this.session.photoURL;
+  }
+}

@@ -15,10 +15,17 @@ import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 import Messenger from "views/admin/Messenger.js"
+import {UserSession} from "../helpers/auth";
+import {getUserProfile} from "../helpers/UserProfile";
 
 export default class Admin extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.userSession = new UserSession();
+  }
+
   render() {
+    getUserProfile();
     return (
       <>
         <Sidebar />
@@ -27,8 +34,8 @@ export default class Admin extends Component {
           <AdminNavbar />
           <div className="px-4 mx-auto w-full -m-24">
             <Switch>
-        
-              <Route path="/user/messenger" exact component={Messenger} />
+
+              <Route path="/user/messenger" exact component={() => <Messenger session={this.userSession}/>} />
               <Route path="/user/cinema" exact component={Dashboard} />
               <Route path="/user/maps" exact component={Maps} />
               <Route path="/user/tables" exact component={Tables} />

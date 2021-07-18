@@ -72,7 +72,8 @@ export default class ChatBox extends Component {
 
   render() {
     return (
-      <>
+      <> 
+      
         <div className="py-5 mx-3">
           Login in as: <strong className="text-info">{this.state.user.email}</strong>
         </div>
@@ -91,10 +92,10 @@ export default class ChatBox extends Component {
           })}
         </div>
         <form onSubmit={this.handleSubmit} className="mx-3">
-          <div class="relative flex w-full flex-wrap items-stretch mt-3">
+          <div className="relative flex w-full flex-wrap items-stretch mt-3">
             <input type="text" placeholder="Regular Input" onChange={this.handleChange} value={this.state.content} className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10" />
-            <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent text-base items-center justify-center w-8 right-0 pr-3 py-3">
-              <i class="fas fa-paper-plane" onClick={this.handleSubmit}></i>
+            <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent text-base items-center justify-center w-8 right-0 pr-3 py-3">
+              <i className="fas fa-paper-plane" onClick={this.handleSubmit}></i>
             </span>
           </div>
           {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
