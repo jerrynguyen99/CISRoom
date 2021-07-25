@@ -1,7 +1,7 @@
 import { getCurrentUser } from "helpers/auth";
-import React, {useState} from "react";
-import {userProfile} from "../../helpers/UserProfile";
-import {Button} from "@chatscope/chat-ui-kit-react";
+import React, { useState } from "react";
+import { userProfile } from "../../helpers/UserProfile";
+import { Button } from "@chatscope/chat-ui-kit-react";
 
 // components
 
@@ -11,14 +11,14 @@ export default function CardProfile() {
 
   const LoadingState = async (event) => {
     event.preventDefault();
-    setTimeout(() => {setIsContinue(true)}, 500);
+    setTimeout(() => { setIsContinue(true) }, 500);
     while (!info) {
       setInfo(userProfile);
 
     }
   }
 
-  return (isContinue)?(
+  return (isContinue) ? (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
         <div className="px-6">
@@ -36,9 +36,9 @@ export default function CardProfile() {
               <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                 {getCurrentUser().displayName}
               </h3>
-            <h4>
-              @{info.user_info.user_name}
-            </h4>
+              <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+                @{info.user_info.user_name}
+              </div>
               <div className="mb-2 text-left text-blueGray-600 mt-10">
                 <i className="fas fa-street-view mr-2 text-lg text-blueGray-400"></i>
                 Live in <strong>{info.user_contact_info.district}, {info.user_contact_info.city}</strong>
@@ -95,5 +95,5 @@ export default function CardProfile() {
         </div>
       </div>
     </>
-  ):(<Button autoFocus={true} onFocus={LoadingState}></Button>);
+  ) : (<Button autoFocus={true} onFocus={LoadingState}></Button>);
 }

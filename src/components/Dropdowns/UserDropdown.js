@@ -19,6 +19,7 @@ const UserDropdown = () => {
 
   const handleSignout = () => {
     logout();
+
   }
   const user = getCurrentUser();
   return (
@@ -33,7 +34,7 @@ const UserDropdown = () => {
         }}
       >
         <div className="items-center flex">
-          <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+          <span className="w-10 h-10 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
@@ -46,7 +47,7 @@ const UserDropdown = () => {
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+          "w-full bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
         <a
@@ -78,7 +79,7 @@ const UserDropdown = () => {
         </a>
         <div className="h-0 my-2 border border-solid border-blueGray-100" />
         <a
-          href="#pablo"
+          href="/ "
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap  bg-transparent text-blueGray-700"
           }

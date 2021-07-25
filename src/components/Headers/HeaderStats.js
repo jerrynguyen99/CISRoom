@@ -8,7 +8,7 @@ export default function HeaderStats() {
   return (
     <>
       {/* Header */}
-      <div className="relative bg-lightBlue-600 md:pt-32 pb-32 pt-12 ease-linear transition-all duration-150">
+      <div className="relative bg-lightBlue-600 md:pt-8 pb-8 ease-linear transition-all duration-150">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             {/* Card stats */}  

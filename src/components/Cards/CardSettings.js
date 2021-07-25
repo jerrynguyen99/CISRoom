@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBoxes, faImages} from "@fortawesome/free-solid-svg-icons";
 import {Loader, Button, MessageList} from "@chatscope/chat-ui-kit-react";
-import {userProfile} from "../../helpers/UserProfile";
+import {getUserProfile, userProfile} from "../../helpers/UserProfile";
 import LoadingCard from "./LoadingCard";
 
 // components
@@ -11,7 +11,6 @@ export default function CardSettings() {
     const [color] = useState('lightBlue');
     const [error, setError] = useState('');
     const [isContinue, setIsContinue] = useState(!!(userProfile));
-    console.log(isContinue)
     const user = getCurrentUser();
     const [info, setInfo] = useState(userProfile);
     const [firstName, setFirstName] = useState(user.displayName.split(' ').slice(0, -1).join(' '));
@@ -49,6 +48,7 @@ export default function CardSettings() {
 
     const LoadingState = async (event) => {
         event.preventDefault();
+        getUserProfile();
         setTimeout(() => {setError(""); setIsContinue(true)}, 1000);
         setError("Loading your profile...")
         while (!info) {
@@ -211,7 +211,7 @@ export default function CardSettings() {
                                         <input
                                             type="text"
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            defaultValue={userProfile.address}
+                                            defaultValue={info.address}
                                         />
                                     </div>
                                 </div>
@@ -226,7 +226,7 @@ export default function CardSettings() {
                                         <input
                                             type="email"
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            defaultValue={userProfile.user_contact_info.city}
+                                            defaultValue={info.user_contact_info.city}
                                         />
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ export default function CardSettings() {
                                         <input
                                             type="text"
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            defaultValue={userProfile.user_contact_info.country}
+                                            defaultValue={info.user_contact_info.country}
                                         />
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@ export default function CardSettings() {
                                         <input
                                             type="text"
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            defaultValue={userProfile.phone_number}
+                                            defaultValue={info.phone_number}
                                         />
                                     </div>
                                 </div>
@@ -279,7 +279,7 @@ export default function CardSettings() {
                                         <textarea
                                             type="text"
                                             className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            defaultValue={userProfile.user_favourite.quote}
+                                            defaultValue={info.user_favourite.quote}
                                             rows="4"
                                         ></textarea>
                                     </div>

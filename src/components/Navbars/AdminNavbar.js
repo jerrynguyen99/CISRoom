@@ -12,10 +12,7 @@ export default class Navbar extends Component {
     this.hideCalendar = this.hideCalendar.bind(this)
   }
 
-  hideCalendar(event) {
-    this.setState({ buttonClick: !this.state.buttonClick })
-    event.preventDefault();
-  }
+  
 
   render() {
 
@@ -52,7 +49,6 @@ export default class Navbar extends Component {
             </ul>
           </div>
         </nav>
-        <CinemaNavbar button={this.state.buttonClick} />
         {/* End Navbar */}
       </>
     );

@@ -21,7 +21,6 @@ async function getProfile() {
 }
 
 
-
 const setUserProfileState = (profile) => {
     userProfile = profile;
 }
