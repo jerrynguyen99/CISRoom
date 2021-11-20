@@ -37,6 +37,7 @@ export default class Sidebar extends Component {
                 <UserDropdown />
               </li>
             </ul>
+            
             {/* Collapse */}
             <div
               className={
@@ -105,7 +106,7 @@ export default class Sidebar extends Component {
               {/* Contact */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/contact") !== -1
+                (window.location.href.indexOf("/user/connection") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
@@ -113,7 +114,7 @@ export default class Sidebar extends Component {
               >
                 <i className={
                   "nav fas fa-address-book text-lg " +
-                  (window.location.href.indexOf("/user/contact") !== -1
+                  (window.location.href.indexOf("/user/connection") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )

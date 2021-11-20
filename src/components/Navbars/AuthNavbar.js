@@ -15,7 +15,7 @@ export default function Navbar(props) {
               to="/"
             >
               <i className="lg:text-blueGray-200 text-blueGray-400 fas fa-gamepad text-lg leading-lg mr-2" />{" "}
-              CIS Playground
+              Moè Tộc 
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
