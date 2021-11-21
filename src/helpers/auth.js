@@ -1,4 +1,5 @@
 import { auth } from "../services/firebase";
+const { fs } = require("../services/firebase");
 
 export function signup(email, password) {
   return auth().createUserWithEmailAndPassword(email, password);
@@ -26,7 +27,7 @@ export function getCurrentUser() {
   return auth().currentUser;
 }
 
-export function updateProfile(name,url,phone = null) {
+export function updateProfile(name, url, phone = null) {
   const user = auth().currentUser;
   if (name === null) {
     name = user.displayName;
@@ -46,6 +47,23 @@ export function updateProfile(name,url,phone = null) {
   }).catch((error) => {
     return error
   });
+}
+
+export async function getProfile() {
+  if (!getCurrentUser()) {
+    return
+  }
+
+  const profileRef = fs.collection('users').doc(getCurrentUser().uid);
+  const profile = await profileRef.get();
+  if (!profile.exists) {
+    console.log('Cannot find the profile!');
+  } else {
+    return profile.data();
+  }
+
+  console.log('oh no!');
+
 }
 
 export class UserSession {

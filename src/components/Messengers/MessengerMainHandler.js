@@ -18,6 +18,7 @@ export default class MessengerMainContainer extends Component {
                     height: "600px",
                     position: "relative"
                 }}>
+                    <h1>User: {this.user.name}</h1>
                     <MainContainer responsive>
                         <InfoSidebar session={this.user} />
 

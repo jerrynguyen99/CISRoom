@@ -10,17 +10,18 @@ export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.userProfile = props.profile; 
-    console.log(this.userProfile);
+    this.user = props.session;
+
   }
   render () {
     return (
     <>
       <div className="flex flex-wrap">
         <div className="w-full lg:w-8/12 px-4">
-          <CardSettings />
+          <CardSettings profile={this.userProfile} session={this.user}/>
         </div>
         <div className="w-full lg:w-4/12 px-4">
-          <CardProfile />
+          <CardProfile profile={this.userProfile} session={this.user}/>
         </div>
       </div>
     </>
