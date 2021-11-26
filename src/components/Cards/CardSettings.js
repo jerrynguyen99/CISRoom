@@ -11,7 +11,6 @@ export default class CardSettings extends Component {
         super(props);
         this.userProfile = props.profile;
         this.user = props.session;
-        console.log("meow", this.user);
         this.state = {
             color: 'lightBlue',
             error: '',
