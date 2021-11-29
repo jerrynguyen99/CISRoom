@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 
 export default class Profile extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.userProfile = props.profile;
     this.user = props.session;
+    this.state = {
+      color: 'lightBlue',
+      isContinue: true,
+    }
   }
   render() {
 
@@ -24,7 +29,7 @@ export default class Profile extends Component {
               ></span>
             </div>
             <div
-              className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+              className=" top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
               style={{ transform: "translateZ(0)" }}
             >
               <svg
@@ -71,7 +76,7 @@ export default class Profile extends Component {
                       <div className="flex justify-center py-4 lg:pt-4 pt-8">
                         <div className="mr-4 p-3 text-center">
                           <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            1
+                            {this.userProfile.user_friend.list.length}
                           </span>
                           <span className="text-sm text-blueGray-400">
                             Friends
@@ -79,7 +84,7 @@ export default class Profile extends Component {
                         </div>
                         <div className="mr-4 p-3 text-center">
                           <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            2
+                            {this.userProfile.user_photos.length}
                           </span>
                           <span className="text-sm text-blueGray-400">
                             Photos
@@ -87,7 +92,7 @@ export default class Profile extends Component {
                         </div>
                         <div className="lg:mr-4 p-3 text-center">
                           <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            3
+                            {this.userProfile.user_friend.list.length}
                           </span>
                           <span className="text-sm text-blueGray-400">
                             Upvote
@@ -102,21 +107,21 @@ export default class Profile extends Component {
                     </h3>
                     <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
                       {/* @{info.user_info.user_name} */}
-                      @ jerrynguyen99
+                      @{this.userProfile.user_info.user_name}
                     </div>
                     <div className="mb-2 text-center text-blueGray-600 mt-10">
                       <i className="fas fa-street-view mr-2 text-lg text-blueGray-400"></i>
-                      Live in <strong>Thu Duc, Ho Chi Minh City</strong>
+                      Live in <strong>{this.userProfile.user_contact_info.district}, {this.userProfile.user_contact_info.city}</strong>
                       {/* Live in <strong>{info.user_contact_info.district}, {info.user_contact_info.city}</strong> */}
                     </div>
                     <div className="mb-2 text-center text-blueGray-600">
                       <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                      Study at <strong>International University</strong>
+                      Study at <strong>{this.userProfile.user_major.school}</strong>
                       {/* Study at <strong>{info.user_major.school}</strong> */}
                     </div>
                     <div className="mb-2 text-center text-blueGray-600">
                       <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                      Work at  <strong>International university</strong>
+                      Work at  <strong>{this.userProfile.user_job.company}</strong>
                       {/* Work at <strong>{info.user_job.company}</strong> */}
                     </div>
                   </div>
@@ -124,7 +129,7 @@ export default class Profile extends Component {
                     <div className="flex flex-wrap justify-center">
                       <div className="w-full lg:w-9/12 px-4">
                         <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                          My goal is to attain the Web Developer expertise by applying the theory to the product development eviroment – where I can use my software abilities and other engineering skills to make a positive contribution to the company. And I am seeking for my Internship opportunity also.
+                          {this.userProfile.user_favourite.quote}
                         </p>
                         <a
                           href="#pablo"

@@ -27,7 +27,7 @@ export default class CardSettings extends Component {
             window.location.reload();
         }, 3000);
         try {
-            let userFullName = this.firstName.replace(/\s+/g, " ").trim() + " " + this.lastName.replace(/\s+/g, " ").trim();
+            let userFullName = this.state.firstName.replace(/\s+/g, " ").trim() + " " + this.state.lastName.replace(/\s+/g, " ").trim();
             let userUrlPhoto = "https://i.redd.it/tfi7qlekduo31.jpg";
             let userPhoneNumber = "0868817287"
             await updateProfile(userFullName, userUrlPhoto, userPhoneNumber);
@@ -49,16 +49,6 @@ export default class CardSettings extends Component {
         setTimeout(() => this.setState({ error: "" }), 3000);
         this.setState({ error: "//TO-DO: Your profile picture has changed to default"});
     }
-
-    // LoadingState = async (event) => {
-    //     event.preventDefault();
-    //     setTimeout(() => { setError(""); setIsContinue(true) }, 1000);
-    //     setError("Loading your profile...")
-    //     while (!info) {
-    //         setInfo(userProfile);
-    //         console.log("step bro, i'm stuck in loop")
-    //     }
-    // }
 
     render() {
 

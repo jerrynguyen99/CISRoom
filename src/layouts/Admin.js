@@ -24,7 +24,7 @@ export default class Admin extends Component {
     super(props);
     this.userSession = new UserSession();
     this.state = {
-      profile: '',
+      profile: 'nan',
       buttonClick: false,
       colorViewMode: 'light',
       loading: true
@@ -32,7 +32,7 @@ export default class Admin extends Component {
   }
 
   componentDidMount() {
-    getProfile().then((data) => {this.setState({ profile: data, loading: false })})
+    getProfile().then((data) => { this.setState({ profile: data, loading: false }) })
   }
 
   hideCalendar(status) {
@@ -59,7 +59,7 @@ export default class Admin extends Component {
 
               <Route path="/user/messenger" exact component={() => <Messenger session={this.userSession} />} />
               <Route path="/user/connection" exact component={() => <Connection viewMode={this.setState.colorViewMode} />} />
-              <Route path="/user/profile" exact component={() => <Profile session={this.userSession} />} />
+              <Route path="/user/profile" exact component={() => <Profile profile={this.state.profile} session={this.userSession} />} />
               <Route path="/user/cinema" exact component={Cinema} />
               <Route path="/user/maps" exact component={Maps} />
               <Route path="/user/music" exact component={Music} />
