@@ -15,9 +15,10 @@ import Settings from "views/admin/Settings.js";
 import Messenger from "views/admin/Messenger.js"
 import Connection from "views/admin/Connection";
 import Profile from "views/admin/Profile";
-import { getProfile, UserSession } from "../helpers/auth";
+import { getProfile, logout, UserSession } from "../helpers/auth";
 import Music from "views/admin/Music";
 import Cinema from "views/admin/Cinema";
+import Game from "views/admin/Game";
 
 export default class Admin extends Component {
   constructor(props) {
@@ -57,15 +58,16 @@ export default class Admin extends Component {
             {/* <p>Debug command Darkmode: {this.state.colorViewMode}</p> */}
             <Switch>
 
-              <Route path="/user/messenger" exact component={() => <Messenger session={this.userSession} />} />
-              <Route path="/user/connection" exact component={() => <Connection viewMode={this.setState.colorViewMode} />} />
-              <Route path="/user/profile" exact component={() => <Profile profile={this.state.profile} session={this.userSession} />} />
-              <Route path="/user/cinema" exact component={Cinema} />
-              <Route path="/user/maps" exact component={Maps} />
-              <Route path="/user/music" exact component={Music} />
-              <Route path="/user/settings" exact component={() => <Settings profile={this.state.profile} session={this.userSession} />} />
-
-              <Redirect from="/user" to="/user/profile" />
+              <Route path="/u/messenger" exact component={() => <Messenger session={this.userSession} />} />
+              <Route path="/u/connection" exact component={() => <Connection viewMode={this.setState.colorViewMode} />} />
+              <Route path="/u/profile" exact component={() => <Profile profile={this.state.profile} session={this.userSession} />} />
+              <Route path="/u/cinema" exact component={Cinema} />
+              <Route path="/u/gaming" exact component={() => <Game profile={this.state.profile} session={this.userSession} />} />
+              <Route path="/u/maps" exact component={Maps} />
+              <Route path="/u/music" exact component={Music} />
+              <Route path="/u/settings" exact component={() => <Settings profile={this.state.profile} session={this.userSession} />} />
+              <Route path="/u/logout" exact component={() => <div onLoad={logout()}>  </div>}> </Route>
+              <Redirect from="/u" to="/u/messenger" />
             </Switch>
             <FooterAdmin />
           </div>

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component} from "react"; 
 import {
     Avatar, ChatContainer,
     ConversationHeader,
@@ -7,9 +7,11 @@ import {
     VideoCallButton,
     VoiceCallButton
 } from "@chatscope/chat-ui-kit-react";
-
-
 export default class ChatContainerHandler extends Component {
+    // messagesLoadingLimit = 20
+    // messagesRef = collection('messages');
+    // query = this.messagesRef.orderBy('createdAt').limit(this.messagesLoadingLimit);
+    
 
     render() {
         return (
@@ -25,6 +27,7 @@ export default class ChatContainerHandler extends Component {
                             <InfoButton />
                         </ConversationHeader.Actions>
                     </ConversationHeader>
+
                     <MessageList typingIndicator={<TypingIndicator content="Eliot is typing" />}>
 
                         <MessageSeparator content="Saturday, 30 November 2019" />

@@ -49,6 +49,10 @@ export function updateProfile(name, url, phone = null) {
   });
 }
 
+async function createProfile() {
+  
+}
+
 export async function getProfile() {
   if (!getCurrentUser()) {
     return
@@ -78,5 +82,8 @@ export class UserSession {
   }
   getPhotoUrl() {
     return this.session.photoURL;
+  }
+  getUID() {
+    return this.session.uid;
   }
 }

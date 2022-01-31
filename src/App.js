@@ -41,7 +41,7 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
                 authenticated === false ? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to="/user" />
+                    <Redirect to="/u" />
                 )
             }
         />
@@ -84,7 +84,7 @@ class App extends Component {
                 <Switch>
                     {/* add routes with layouts */}
                     <PrivateRoute
-                        path="/user"
+                        path="/u"
                         authenticated={this.state.authenticated}
                         component={Admin}
                     />

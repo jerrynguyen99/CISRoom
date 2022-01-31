@@ -37,7 +37,7 @@ export default class Sidebar extends Component {
                 <UserDropdown />
               </li>
             </ul>
-            
+
             {/* Collapse */}
             <div
               className={
@@ -87,15 +87,15 @@ export default class Sidebar extends Component {
               {/* Profile */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/profile") !== -1
+                (window.location.href.indexOf("/u/profile") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/profile"
+                to="/u/profile"
               >
                 <i className={
                   "nav fas fa-user-tie   text-lg " +
-                  (window.location.href.indexOf("/user/profile") !== -1
+                  (window.location.href.indexOf("/u/profile") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -106,15 +106,15 @@ export default class Sidebar extends Component {
               {/* Contact */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/connection") !== -1
+                (window.location.href.indexOf("/u/connection") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/connection"
+                to="/u/connection"
               >
                 <i className={
                   "nav fas fa-address-book text-lg " +
-                  (window.location.href.indexOf("/user/connection") !== -1
+                  (window.location.href.indexOf("/u/connection") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -129,15 +129,15 @@ export default class Sidebar extends Component {
               {/* Mesenger */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/messenger") !== -1
+                (window.location.href.indexOf("/u/messenger") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/messenger"
+                to="/u/messenger"
               >
                 <i className={
                   "nav fas fa-comment-dots text-lg " +
-                  (window.location.href.indexOf("/user/messenger") !== -1
+                  (window.location.href.indexOf("/u/messenger") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -149,15 +149,15 @@ export default class Sidebar extends Component {
               {/* Cinema */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/cinema") !== -1
+                (window.location.href.indexOf("/u/cinema") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/cinema"
+                to="/u/cinema"
               >
                 <i className={
                   "nav fas fa-tv text-lg " +
-                  (window.location.href.indexOf("/user/cinema") !== -1
+                  (window.location.href.indexOf("/u/cinema") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -169,15 +169,15 @@ export default class Sidebar extends Component {
               {/* Music */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/music") !== -1
+                (window.location.href.indexOf("/u/music") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/music"
+                to="/u/music"
               >
                 <i className={
                   "nav fas fa-music text-lg " +
-                  (window.location.href.indexOf("/user/music") !== -1
+                  (window.location.href.indexOf("/u/music") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -189,15 +189,15 @@ export default class Sidebar extends Component {
               {/* Maps */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/maps") !== -1
+                (window.location.href.indexOf("/u/maps") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/maps"
+                to="/u/maps"
               >
                 <i className={
                   "nav fas fa-map-marked text-lg " +
-                  (window.location.href.indexOf("/user/maps") !== -1
+                  (window.location.href.indexOf("/u/maps") !== -1
                     ? "opacity-90"
                     : "text-blueGray-300"
                   )
@@ -205,21 +205,41 @@ export default class Sidebar extends Component {
                 ></i>
               </Link>
 
+              {/* Gaming */}
+              <Link className={
+                "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
+                (window.location.href.indexOf("/u/gaming") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-500 hover:text-blueGray-600")
+              }
+                to="/u/gaming"
+              >
+                <i className={
+                  "nav fas fa-gamepad text-lg " +
+                  (window.location.href.indexOf("/u/gaming") !== -1
+                    ? "opacity-75"
+                    : "text-blueGray-300"
+                  )
+                }
+                ></i>
+              </Link>
+
+
               {/* Divider */}
               <hr className="my-4 md:min-w-full" />
 
               {/* Settings */}
               <Link className={
                 "py-2 flex items-center text-xl uppercase font-bold leading-snug " +
-                (window.location.href.indexOf("/user/settings") !== -1
+                (window.location.href.indexOf("/u/settings") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
-                to="/user/settings"
+                to="/u/settings"
               >
                 <i className={
                   "nav fas fa-tools text-lg " +
-                  (window.location.href.indexOf("/user/settings") !== -1
+                  (window.location.href.indexOf("/u/settings") !== -1
                     ? "opacity-75"
                     : "text-blueGray-300"
                   )
@@ -235,7 +255,7 @@ export default class Sidebar extends Component {
                   : "text-blueGray-500 hover:text-blueGray-600")
               }
                 href="#"
-                onClick ={() => {this.props.changeViewMode(this.props.viewMode == 'light' ? "dark": "light")}}
+                onClick={() => { this.props.changeViewMode(this.props.viewMode == 'light' ? "dark" : "light") }}
               >
                 <i className={
                   "nav fas fa-lightbulb text-lg " +
